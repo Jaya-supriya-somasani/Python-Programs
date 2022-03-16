@@ -10,17 +10,16 @@ After all 100 monkeys have done their work in this way,
 what state are the doors in after the last pass?
 """"
 
-n=100
-l=[]
-for i in range(n+1):
-    l.append(False)
-for i in range(1,n+1):
-    for j in range(1,101):
-        if(i*j<101):
-            if(l[i*j]==False):
-                l[i*j]=True
-            else:
-                l[i*j]=False
-for i in range(1,len(l)):
-    if(l[i]==True):
-        print(i,l[i])
+doors=100
+monkeys = 100
+state=[]
+for door in range(doors+1):
+    state.append(False)
+for door in range(1,doors+1):
+    for monkey in range(1,monkeys + 1):
+        if(door*monkey<(doors+1)):
+            state[door*monkey]= not state[door*monkey]      #here we are changing the state as like not gate
+for index in range(1, len(state)):
+    status = state[index]
+    if(status==True):
+        print(index, state[index])
